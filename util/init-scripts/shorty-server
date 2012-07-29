@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# chkconfig: 2345 90 10
+# description: shorty-server
+
+DIR=/home/shorty/smscloud-shorty
+PATH=/home/shorty/local/bin:/usr/local/bin:/usr/bin
+NODE_PATH=/home/shorty/local/lib/node_modules
+NODE=/home/shorty/local/bin/node
+PIDFILE=/tmp/shorty-server.pid
+
+if [ $(whoami) != "root" ];then
+    echo "Please run as root."
+    exit 1
+fi
+
+test -x $NODE || exit 2
+
+function start {
+    cd $DIR
+    sudo -u shorty PATH=$PATH "$NODE" "$DIR/server.js"
+}
+
+function stop {
+    kill `cat $PIDFILE`
+}
+
+case $1 in
+    start)
+        start ;;
+    stop)
+        stop ;;
+    *)
+        echo "usage: /etc/init.d/shorty-server {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0

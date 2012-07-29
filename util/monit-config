@@ -1,0 +1,11 @@
+check process shorty-server with pidfile /tmp/shorty-server.pid
+    start program = "/etc/init.d/shorty-server start"
+    stop program = "/etc/init.d/shorty-server stop"
+
+check process shorty-transmitter with pidfile /tmp/shorty-transmitter.pid
+    start program = "/etc/init.d/shorty-transmitter start"
+    stop program = "/etc/init.d/shorty-transmitter stop"
+
+check process shorty-receiver with pidfile /tmp/shorty-receiver.pid
+    start program = "/etc/init.d/shorty-receiver start"
+    stop program = "/etc/init.d/shorty-receiver stop"

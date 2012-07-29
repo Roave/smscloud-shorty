@@ -1,0 +1,7 @@
+requires:
+    - node v0.6.9
+    - git 
+
+installation:
+    - npm install log node-uuid redback hiredis optimist daemon fs-ext
+    - cd node_modules && git clone git://github.com/bjyoungblood/shorty.git

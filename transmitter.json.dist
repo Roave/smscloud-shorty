@@ -1,0 +1,28 @@
+{
+    "smscloudHost":     "api.smscloud.com",
+    "smscloudPath":     "/jsonrpc?key=",
+    "chdir":            "/home/smscloud/smscloud-shorty",
+    "pidFile":          "/tmp/shorty-new/transmitter.pid",
+    "outFile":          "/tmp/shorty-new/transmitter.log",
+    "max_http_requests": 50,
+    "runAsUid":         500,
+    "workers":          10,
+    "client": {
+        "smpp": {
+            "mode":         "transmitter",
+            "host":         "",
+            "port":         2775,
+            "system_id":    "",
+            "password":     "",
+            "system_type":  "SHORTY",
+            "addr_ton":     0,
+            "addr_npi":     1,
+            "addr_range":   "",
+            "timeout":      10,
+            "strict":       1,
+            "client_keepalive": true,
+            "client_reconnect_interval": 2500
+        },
+        "debug":    false
+    }
+}
